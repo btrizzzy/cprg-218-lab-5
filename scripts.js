@@ -96,4 +96,3 @@ confirmButton.addEventListener("click", dropdownClick);
 
 /* Call to populate the dropdown */
 renderDropdown();
-fetchDetails().then((results) => console.log(results)); 
