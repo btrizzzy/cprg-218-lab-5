@@ -6,9 +6,10 @@ function createCard(item) {
             <h1 class="header">
                 ${item.title}
             </h1>
-            <p class="subheader">
+            <h3 class="subheader">
                 ${item.subtitle}
-            </p>
+            </h3>
+            <h6>Featured in: </h6>
             <p class="card-text">
                 ${item.text}
             </p>
@@ -29,9 +30,9 @@ async function fetchGhibli() {
 }
 
 /* Fetch film details of selected character */
-async function fetchDetails() {
+async function fetchDetails(filmAPILink) {
   try {
-    const response = await fetch("https://ghibliapi.vercel.app/films/");
+    const response = await fetch(filmAPILink);
     const json = await response.json();
     return json;
   } catch (error) {
@@ -44,19 +45,18 @@ async function renderResults(data) {
   try {
     const charName = data.name;
     const gender = data.gender;
+    const filmData = await fetchDetails(data.films[0])
+    const card = createCard({
+      title: charName,
+      subtitle: gender,
+      text: filmData.title,
+    });
 
-    await fetchDetails().then(data => {
-      const filmTitles = data.map(film => film.title).join(', ');
-      const card = createCard({
-        title: charName,
-        subtitle: gender,
-        text: filmTitles,
-    });
     document.getElementById("results").innerHTML = card;
-    });
+
     } catch (error) {
     console.error("Error rendering character card:", error);
-  } 
+  }
 }
 
 /* Populate dropdown list */

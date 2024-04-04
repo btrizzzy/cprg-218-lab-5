@@ -8,7 +8,7 @@
   background-color: #109cea;
   border-radius: 4px;
   box-shadow: 0rem 0.125rem 1.5rem rgb(0 0 0 / 12%);
-  max-width: 21.1875rem;
+  width: 100%;
   flex: 1 0 45%;
 }
 
@@ -24,3 +24,41 @@
 .subheader {
   margin: 0;
 }
+
+select {
+  position: relative;
+  width: 100%;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: #000;
+  cursor: pointer;
+}
+
+button {
+  background-color: #9fa4df;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  min-height: 3rem;
+  position: relative;
+  transition: all 230ms;
+  width: 100%;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #109eea80;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  transform: translateY(-1px);
+}
+
+
+button:active {
+  background-color: #0b004f;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
