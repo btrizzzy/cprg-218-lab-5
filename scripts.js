@@ -9,7 +9,8 @@ function createCard(item) {
             <h3 class="subheader">
                 ${item.subtitle}
             </h3>
-            <h6>Featured in: </h6>
+            <h6>Featured In: </h6>
+            <img src="${item.image} alt=""></img>
             <p class="card-text">
                 ${item.text}
             </p>
@@ -55,16 +56,17 @@ async function fetchDetails(filmAPILink) {
 async function renderResults(data) {
   try {
     const charName = data.name;
-    const gender = data.gender;
-    const speciesData = await fetchSpecies(data.species)
-    const filmData = await fetchDetails(data.films[0])
-
-const subtitle = `${gender}, ${speciesData.name}`;
-
+    let gender = data.gender === "NA" ? "Gender information not available" : data.gender;
+    let age = data.age === "" || data.age === "NA" ? "Age information not available" : data.age;
+    const speciesData = await fetchSpecies(data.species);
+    const filmData = await fetchDetails(data.films[0]);
+    const subtitle = `Gender: ${gender} <br> Age: ${age} <br> Species: ${speciesData.name}`;
+    const text = ` ${filmData.title} (${filmData.release_date})`
     const card = createCard({
       title: charName,
       subtitle: subtitle,
-      text: filmData.title,
+      text: text,
+      image: filmData.image,
     });
 
     document.getElementById("results").innerHTML = card;

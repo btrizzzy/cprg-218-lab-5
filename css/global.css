@@ -4,13 +4,14 @@
     max-width: 75rem;
     padding: 3rem 1.5rem;
     position: relative;
-    
+    text-align: center;
+    overflow-wrap: normal;
   }
   
-  /* Section Header Content */
-  .header-container {
+/* Section Header Content */
+.header-container {
     background-color: #109cea;
     text-align: center;
-    padding: 6rem 1rem;
+    padding: 10rem 3rem;
   }
   
