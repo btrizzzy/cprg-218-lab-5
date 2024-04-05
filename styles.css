@@ -29,15 +29,15 @@ select {
   position: relative;
   width: 100%;
   padding: 0.675em 6em 0.675em 1em;
-  background-color: #fff;
-  border: 1px solid #caced1;
+  background-color: #109eea19;
+  border: 2px solid #caced1;
   border-radius: 0.25rem;
   color: #000;
   cursor: pointer;
 }
 
 button {
-  background-color: #9fa4df;
+  background-color: #101548;
   color: #fff;
   border: 1px solid transparent;
   border-radius: .25rem;
@@ -55,9 +55,8 @@ button:hover {
   transform: translateY(-1px);
 }
 
-
 button:active {
-  background-color: #0b004f;
+  background-color: #10154882;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
 }

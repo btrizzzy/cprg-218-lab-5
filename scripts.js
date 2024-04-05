@@ -29,6 +29,17 @@ async function fetchGhibli() {
   }
 }
 
+/* Fetch species of selected character */
+async function fetchSpecies(speciesAPILink) {
+  try {
+    const response = await fetch(speciesAPILink);
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error("Error fetching species details:", error);
+  }  
+}
+
 /* Fetch film details of selected character */
 async function fetchDetails(filmAPILink) {
   try {
@@ -45,10 +56,14 @@ async function renderResults(data) {
   try {
     const charName = data.name;
     const gender = data.gender;
+    const speciesData = await fetchSpecies(data.species)
     const filmData = await fetchDetails(data.films[0])
+
+const subtitle = `${gender}, ${speciesData.name}`;
+
     const card = createCard({
       title: charName,
-      subtitle: gender,
+      subtitle: subtitle,
       text: filmData.title,
     });
 
